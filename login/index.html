@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Login Form</title>
+</head>
+<body>
+
+    <div class="container" style="margin:35px auto;">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id=info></div>
+                        <form method="POST" id="myform">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" name="email" placeholder="Your Email" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="text" id="password" name="password" placeholder="Wachtwoord" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" id="login" name="login" value="login" class="btn btn-primary"> 
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="js/"></script>
+<script src="js/"></script>
+<script src="js/"></script>
+
+<script>
+    $(document).ready(function){
+        $("#myform").validate({
+            rules: {
+                password: {
+                    required: true
+                },
+                email{
+                    required: true,
+                    email: true
+                }
+            },
+            messages:{
+                password: {
+                    required: "please enter your password"
+                },
+                email: "please enter your email"
+            },
+            submitHandler: subform
+        })
+        function subform(){
+        var data = $("myform").serialize();
+        $.ajax({
+            type: 'POST',
+            url: 'data.php'
+            data: data,
+            beforeSend: function(){
+                $("#Info").fadeOut();
+                $("login").html("Sending...");
+            },
+            succes: function(resp){
+                if(resp=="ok"){
+                    $("login").html("<img src='ajax-loader.gif' width='15'/> &nbsp login");
+                    setTimeout('window.location.href ="dashboard.php;');
+                } else{
+                    $("#info").fadeIn(1000, function(){
+                        $("#info").html("<div class='alert alert-danger'>"+resp+"</div>");
+                        $("#login").html('login');
+                    })
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

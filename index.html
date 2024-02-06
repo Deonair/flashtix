@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FlashTix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="css/flashtix.css">
+    <script src="js/flashtix.js"></script>
+  </head>
+  <body>
+    <div data-role ="page" class ="page" id="homepage">
+        <div class="header" data-role="header" data-theme="b">
+            <div class="nav" data-role="controlgroup">
+                <div class="ui-grid-b">
+                    <div class="ui-block-a" >
+                        <a class="knop" href="#homepage"
+                            data-role="button"
+                            data-icon="home"
+                            data-iconpos="left">Home</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a class="knop" href="#homepage"   
+                            data-role="button"> Welkom</a>
+                    </div>
+                    <div class="ui-block-c">
+                        <a class="knop" href="#lastminutepage"
+                            data-role="button"
+                            data-icon="arrow-r"
+                            data-iconpos="left"
+                            data-transition="slidedown">Lastminute</a>
+                    </div>
+                </div><!--/grid-b-->
+            </div><!--/nav-->
+        
+        </div>
+
+        <div class="content" id="homecontent" data-role="content">
+            <br><br>
+            <h1>FlashTix</h1>
+
+            <canvas id="mycanvas"></canvas>
+<br>
+            <img id="poster" class="poster" src="img/E3.jpg" width="1000px">       
+        </div><!--/einde homecontent-->
+
+    
+        <div class="footer" data-role="footer" data-theme="b">
+            <div class="nav" data-role="controlgroup">
+                <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <a class="knop" href="#agendapage"
+                        data-role="button"
+                        data-icon="grid"
+                        data-iconpos="left">Agenda</a>
+                </div>
+                <div class="ui-block-b">
+                    <a class="knop" href="#locationpage"
+                        data-role="button"
+                        data-icon="search"
+                        data-iconpos="left">Location</a>
+                </div>
+                </div><!--grid-a-->
+            </div><!--/nav-->
+        </div><!--/footer-->
+    </div><!--/Homepage-->
+        
+    <div data-role="page" id="lastminutepage">
+        <div class="header" data-role="header" data-theme="b">
+                <div class="nav" data-role="controlgroup">
+                        <div class="ui-grid-b">
+                            <div class="ui-block-a" >
+                                <a class="knop" href="#homepage"
+                                    data-role="button"
+                                    data-icon="arrow-l"
+                                    data-iconpos="left">Vorige</a>
+                            </div>
+                            <div class="ui-block-b">
+                                <a class="knop" href="#homepage"
+                                    data-role="button"
+                                    data-icon="home"
+                                    data-iconpos="left">Home</a>
+                            </div>
+                            <div class="ui-block-c">
+                                <a class="knop" href="#bestelpage"
+                                    data-role="button"
+                                    data-icon="arrow-r"
+                                    data-iconpos="left"
+                                    data-transition="slidedown">Bestel</a>
+                            </div>
+                        </div><!--/grid-b-->
+                    </div><!--/nav-->
+        </div>
+        
+        <div data-role="content" class="content" id="lastminutecontent"><br>
+            <ul data-role="listview">
+                <li id="pop" data-role="list-divider"
+                    data-theme="b">POP</li>
+                <li id="shakira-concert">
+                    <a href="#shakira-biopage">
+                        <img class="poster" src="img/playstation.jpg">
+                        <h3>Playstation</h3>
+                        <p>Amsterdam Arena</p>
+                        <p>Vandaag 22:00 uur</p>
+                    </a>
+                    <a href="#shakira-biopage"
+                        data-transition="flip">
+                    </a>
+                </li>
+
+                <li id="MichaelBuble-concert">
+                    <a href="#Michaelbuble-biopage">
+                        <img class="poster" src="img/xbox.jpg">
+                        <h3>Xbox</h3>
+                        <p>Ziggo Dome</p>
+                        <p>Zaterdag 20:00 uur</p>
+                    </a>
+                    <a href="#Michaelbuble-biopage"
+                        data-transition="flip">
+                    </a>
+                </li>
+               
+                <li id="pop" data-role="list-divider"
+                    data-theme="b">Jazz</li>
+                <li id="ViennaBlues-concert">
+                    <a href="#ViennaBlues-biopage">
+                        <img class="poster" src="img/nintendo.jpg">
+                        <h3>Nintendo</h3>
+                        <p>Ziggo Dome</p>
+                        <p>Zaterdag 12:00 uur</p>
+                    </a>
+                    <a href="#ViennaBlues-biopage"
+                        data-transition="flip">
+                    </a>
+                </li>
+                
+                <li id="rock" data-role="list-divider"
+                    data-theme="b">Rock</li>
+                    <li id="Helgi-concert">
+                        <a href="#Helgi-biopage">
+                            <img class="poster" src="img/valve.jpg">
+                            <h3>Valve</h3>
+                            <p>Amsterdam Arena</p>
+                            <p>Zondag 21:00 uur</p>
+                        </a>
+                        <a href="#Helgi-biopage"
+                            data-transition="flip">
+                        </a>
+            </ul><!--/listview-->
+        </div><!--/content-->
+
+<br> <br> <br> <br>
+
+
+        <div class="footer" data-role="footer" data-theme="b">
+                <div class="nav" data-role="controlgroup">
+                    <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <a class="knop" href="#agendapage"
+                            data-role="button"
+                            data-icon="grid"
+                            data-iconpos="left">Agenda</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a class="knop" href="#locationpage"
+                            data-role="button"
+                            data-icon="search"
+                            data-iconpos="left">Location</a>
+                    </div>
+                    </div><!--grid-a-->
+                </div><!--/nav-->
+            </div><!--/footer-->
+    </div><!--/einde lastminutepage-->
+
+    <div data-role="page" class="page" id="shakira-biopage">
+        <div class="header" data-role="header" data-theme="b">
+            <div class="nav" data-role="controlgroup">
+                <div class="ui-grid-b">
+                    <div class="ui-block-a" >
+                        <a class="knop" href="#lastminutepage"
+                            data-role="button"
+                            data-icon="arrow-l"
+                            data-iconpos="left">Vorige</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a class="knop" href="#homepage"   
+                            data-role="button"> Welkom</a>
+                    </div>
+                    <div class="ui-block-c">
+                        <a class="knop" href="#"
+                            data-role="button"
+                            data-icon="arrow-r"
+                            data-iconpos="left"
+                            data-transition="slidedown">E-tickets</a>
+                    </div>
+                </div><!--/grid-b-->
+            </div><!--/nav-->
+        </div>
+
+        <div data-role="tabs" id="tabs">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#video" data-ajax="false">Video</a></li>
+                        <li><a href="#bio" data-ajax="false">Biografie</a></li>
+                    </ul>
+                </div>
+            </div> <!-- einde tabs -->
+
+            <div id="video" class="ui-body-d ui-content">
+                <h1>Video</h1>
+                <video controls="controls" width="90%" preload id="video" poster="img/playstation.jpg">
+                    <source src="video/Shakira - Chantaje ft. Maluma.mp4" type="video/mp4">
+                    <source src="shakira.webm" type="video/webm">
+                    <source src="shakira.3gpp" type="viedeo/3gpp">
+                  
+              </video> <!-- einde video-->
+            </div>
+
+            <ul data-role="listview" data-filter="true"data-filter-reveal="true" data-filter-placeholder="zoek term ..."
+            data-insert="true">
+            <li><a href="#">T-shirts</a></li>
+            <li><a href="#">Boeken</a></li>
+            <li><a href="#">ALbums</a></li>
+        </ul>
+
+
+
+        <div class="footer" data-role="footer" data-theme="b">
+            <div class="nav" data-role="controlgroup">
+                <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <a class="knop" href="#agendapage"
+                        data-role="button"
+                        data-icon="grid"
+                        data-iconpos="left">Agenda</a>
+                </div>
+                <div class="ui-block-b">
+                    <a class="knop" href="#locationpage"
+                        data-role="button"
+                        data-icon="search"
+                        data-iconpos="left">Location</a>
+                </div>
+                </div><!--grid-a-->
+            </div><!--/nav-->
+        </div><!--/footer-->
+    </div><!--/einde shakira biopage-->
+
+    <div data-role="page" id="Michaelbuble-biopage">
+        <div class="header" data-role="header" data-theme="b">
+            <div class="nav" data-role="controlgroup">
+                <div class="ui-grid-b">
+                    <div class="ui-block-a" >
+                        <a class="knop" href="#lastminutepage"
+                            data-role="button"
+                            data-icon="arrow-l"
+                            data-iconpos="left">Vorige</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a class="knop" href="#homepage"   
+                            data-role="button"> Welkom</a>
+                    </div>
+                    <div class="ui-block-c">
+                        <a class="knop" href="#"
+                            data-role="button"
+                            data-icon="arrow-r"
+                            data-iconpos="left"
+                            data-transition="slidedown">E-tickets</a>
+                    </div>
+                </div><!--/grid-b-->
+            </div><!--/nav-->
+        </div>
+
+        <div data-role="content">
+            <video controls="controls" width="90%"
+                preload id="video" poster="images/michaelposter.jpg">
+                <source src="michael.mp4" type="video/mp4">
+                <source src="michael.webm" type="video/webm">
+                <source src="michael.3gpp" type="video/3gpp">
+            </video>
+            <p>Aliquameratvolutpat. MAuris vel newwuesitamet nunc
+                gravida conguesedsitametpurus. Quisquelacusquam,
+                egestasactincidunt a, lacinia vel velit. Morbiac
+                commodo nulla.</p>
+        </div><!--/einde content-->
+        <div class="footer" data-role="footer" data-theme="b">
+            <div class="nav" data-role="controlgroup">
+                <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <a class="knop" href="#agendapage"
+                        data-role="button"
+                        data-icon="grid"
+                        data-iconpos="left">Agenda</a>
+                </div>
+                <div class="ui-block-b">
+                    <a class="knop" href="#locationpage"
+                        data-role="button"
+                        data-icon="search"
+                        data-iconpos="left">Location</a>
+                </div>
+                </div><!--grid-a-->
+            </div><!--/nav-->
+        </div><!--/footer-->
+    </div><!--/einde Michaelbuble biopage-->
+
+    <div data-role="page" id="ViennaBlues-biopage">
+        <div class="header" data-role="header" data-theme="b">
+            <div class="nav" data-role="controlgroup">
+                <div class="ui-grid-b">
+                    <div class="ui-block-a" >
+                        <a class="knop" href="#lastminutepage"
+                            data-role="button"
+                            data-icon="arrow-l"
+                            data-iconpos="left">Vorige</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a class="knop" href="#homepage"   
+                            data-role="button"> Welkom</a>
+                    </div>
+                    <div class="ui-block-c">
+                        <a class="knop" href="#"
+                            data-role="button"
+                            data-icon="arrow-r"
+                            data-iconpos="left"
+                            data-transition="slidedown">E-tickets</a>
+                    </div>
+                </div><!--/grid-b-->
+            </div><!--/nav-->
+        </div>
+
+        <div data-role="content">
+            <video controls="controls" width="90%"
+                preload id="video" poster="images/viennaposter.jpg">
+                <source src="vienna.mp4" type="video/mp4">
+                <source src="vienna.webm" type="video/webm">
+                <source src="vienna.3gpp" type="video/3gpp">
+            </video>
+            <p>Aliquameratvolutpat. MAuris vel newwuesitamet nunc
+                gravida conguesedsitametpurus. Quisquelacusquam,
+                egestasactincidunt a, lacinia vel velit. Morbiac
+                commodo nulla.</p>
+        </div><!--/einde content-->
+        <div class="footer" data-role="footer" data-theme="b">
+            <div class="nav" data-role="controlgroup">
+                <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <a class="knop" href="#agendapage"
+                        data-role="button"
+                        data-icon="grid"
+                        data-iconpos="left">Agenda</a>
+                </div>
+                <div class="ui-block-b">
+                    <a class="knop" href="#locationpage"
+                        data-role="button"
+                        data-icon="search"
+                        data-iconpos="left">Location</a>
+                </div>
+                </div><!--grid-a-->
+            </div><!--/nav-->
+        </div><!--/footer-->
+    </div><!--/einde ViennaBlues biopage-->
+
+    <div data-role="page" id="Helgi-biopage">
+        <div class="header" data-role="header" data-theme="b">
+            <div class="nav" data-role="controlgroup">
+                <div class="ui-grid-b">
+                    <div class="ui-block-a" >
+                        <a class="knop" href="#lastminutepage"
+                            data-role="button"
+                            data-icon="arrow-l"
+                            data-iconpos="left">Vorige</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a class="knop" href="#homepage"   
+                            data-role="button"> Welkom</a>
+                    </div>
+                    <div class="ui-block-c">
+                        <a class="knop" href="#"
+                            data-role="button"
+                            data-icon="arrow-r"
+                            data-iconpos="left"
+                            data-transition="slidedown">E-tickets</a>
+                    </div>
+                </div><!--/grid-b-->
+            </div><!--/nav-->
+        </div>
+
+        <div data-role="content">
+            <video controls="controls" width="90%"
+                preload id="video" poster="images/helgiposter.jpg">
+                <source src="Helgi.mp4" type="video/mp4">
+                <source src="Helgi.webm" type="video/webm">
+                <source src="Helgi.3gpp" type="video/3gpp">
+            </video>
+            <p>Aliquameratvolutpat. MAuris vel newwuesitamet nunc
+                gravida conguesedsitametpurus. Quisquelacusquam,
+                egestasactincidunt a, lacinia vel velit. Morbiac
+                commodo nulla.</p>
+        </div><!--/einde content-->
+        <div class="footer" data-role="footer" data-theme="b">
+            <div class="nav" data-role="controlgroup">
+                <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <a class="knop" href="#agendapage"
+                        data-role="button"
+                        data-icon="grid"
+                        data-iconpos="left">Agenda</a>
+                </div>
+                <div class="ui-block-b">
+                    <a class="knop" href="#locationpage"
+                        data-role="button"
+                        data-icon="search"
+                        data-iconpos="left">Location</a>
+                </div>
+                </div><!--grid-a-->
+            </div><!--/nav-->
+        </div><!--/footer-->
+    </div><!--/einde Helgi biopage-->
+
+    <div data-role="page" id="bestelpage" class="page">
+
+        <div class="header" data-role="header" data-theme="b">
+
+            <div class="nav" data-role="controlgroup">
+
+                <div class="ui-grid-b">
+
+                    <div class="ui-block-a" >
+
+                        <a class="knop" href="#lastminutepage"
+
+                            data-role="button"
+
+                            data-icon="arrow-l"
+
+                            data-iconpos="left">Vorige</a>
+
+                    </div>
+
+                    <div class="ui-block-b">
+
+                        <a class="knop" href="#homepage"  
+
+                            data-role="button"> Welkom</a>
+
+                    </div>
+
+                    <div class="ui-block-c">
+
+                        <a class="knop" href="#"
+
+                            data-role="button"
+
+                            data-icon="arrow-r"
+
+                            data-iconpos="left"
+
+                            data-transition="slidedown">E-tickets</a>
+
+                    </div>
+
+                </div><!--/grid-b-->
+
+            </div><!--/nav-->
+
+        </div>
+
+ 
+
+        <div data-role="content" class="content">
+
+            <form name="form" id="form">
+
+                <p>Kies een concert</p>
+
+                <input type="radio" name="concert" value="shakira">
+
+                <label for="shakira">Shakira</label>
+
+              
+
+                <input type="radio" name="concert" value="Michaelbuble">
+
+                <label for="Michaelbuble">Michael Bublé</label>
+
+             
+
+                <input type="radio" name="concert" value="ViennaBlues">
+
+                <label for="ViennaBlues">Vienna Blues</label>
+
+             
+
+                <input type="radio" name="concert" value="Helgi">
+
+                <label for="Helgi">Helgi Jonsson</label>
+
+                <input type="range" name="aantal" id="aantal" min="1" max="3">
+
+ 
+
+                <div data-role="fieldcontain">
+
+                    <input class="required" type="text" id="naam"
+
+                        name="naam" placeholder="Typ hier uw naam in">
+
+                        <label for="minderjarig">Minderjarig:</label>
+
+                        <select name="slider" id="minderjarig" data-role="slider"
+
+                            data-mini="true">
+
+                                <option value="nee">Nee</option>
+
+                                <option value="ja">Ja</option>
+
+                        </select>
+
+                    <input class="required" type="text" id="mobiel"
+
+                        name="mobiel" placeholder="Typ hier uw mobiele nummer in">
+
+                    <input class="required" type="text" id="email"
+
+                        name="email" placeholder="Typ hier uw E-mail adres in">
+
+ 
+
+                        <input type="text" name="plaats" id="plaats" list="steden"
+
+                            placeholder="Woonplaats">
+
+                        <datalist id="steden">
+
+                            <option value="Almere"></option>
+
+                            <option value="Amstelveen"></option>
+
+                            <option value="Amsterdam"></option>
+
+                            <option value="Den Haag"></option>
+
+                            <option value="Hilversum"></option>
+
+                            <option value="Leeuwarden"></option>
+
+                            <option value="Maastricht"></option>
+
+                            <option value="Naarden"></option>
+
+                            <option value="Utrecht"></option>
+
+                        </datalist>
+
+ 
+
+                        <textarea cols="35" rows="4" name="reactie" id="reactie"
+
+                            placeholder="mail ons je reactie"></textarea>
+
+                        <div data-role="controlgroup">
+
+                            <p>Kies een abonnement</p>
+
+                            <input type="checkbox" name="new" id="news">
+
+                            <label for="news">FlashTixNewsletter</label>
+
+                            <input type="checkbox" name="gids" id="gids">
+
+                            <label for="gids">Uitgids</label>
+
+                            <input type="checkbox" name="fest" id="fest">
+
+                            <label for="fest">Festival Gids</label>
+
+                        </div><!--/einde Controlgroep-->
+
+                </div><!--/einde fielcontain-->
+
+                <input type="submit" id="submit" value="Verzend">
+
+            </form><!--/einde formulier-->
+
+        </div><!--/content-->
+
+ 
+
+ 
+
+        <div class="footer" data-role="footer" data-theme="b">
+
+            <div class="nav" data-role="controlgroup">
+
+                <div class="ui-grid-a">
+
+                <div class="ui-block-a">
+
+                    <a class="knop" href="#agendapage"
+
+                        data-role="button"
+
+                        data-icon="grid"
+
+                        data-iconpos="left">Agenda</a>
+
+                </div>
+
+                <div class="ui-block-b">
+
+                    <a class="knop" href="#locationpage"
+
+                        data-role="button"
+
+                        data-icon="search"
+
+                        data-iconpos="left">Location</a>
+
+                </div>
+
+                </div><!--grid-a-->        
+            </div><!--/nav-->        
+        </div><!--/footer-->        
+    </div><!--/einde bestelpagina-->
+       
+</body>
+
+</html> 
